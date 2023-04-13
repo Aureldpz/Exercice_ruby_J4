@@ -8,10 +8,24 @@ value = ["6558.07", "468.95", "0.487526", "762.84", "8.86", "85.26", "0.151268",
 
 my_hash = Hash[crypto.zip(value)]
 
-puts my_hash
+#puts my_hash
+
+#La ou les crypto qui ont la plus grosse valeur.
 
 hash_max = my_hash.max_by {|crypto,value|value.to_i}
 
 puts hash_max
 
-hash_max = my_hash.min_by {|crypto,value|value.to_i}
+#La ou les crypto qui ont la plus petite valeur.
+
+hash_min = my_hash.min_by {|crypto,value|value.to_i}
+
+puts hash_min
+
+#Les devises dont le cours est inférieur à 6000
+
+puts hash_lower = my_hash.select {|crypto,value|value.to_i < 6000}
+
+#La devise la plus chère parmi celles dont le cours est inférieur à 6000.
+
+puts hash_lower_max = my_hash.select {|crypto,value|value.to_i  < 6000}.max_by {|crypto,value|value.to_i}
